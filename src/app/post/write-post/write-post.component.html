@@ -1,0 +1,57 @@
+
+<section>
+    <mat-accordion>
+      <mat-expansion-panel>
+  
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Create a Post
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+  
+        <!-- <input type="file" name="file" id="file" (change)="uploadImage($event)">
+        <div [hidden]="!uploadPercent">
+          <mat-progress-bar mode="determinate" value="{{ uploadPercent | async }}"></mat-progress-bar>
+        </div>
+        <div [hidden]="!image">
+          <img [src]="image || '//:0' ">
+        </div>
+   -->
+        
+   <!-- <input type="file" name="file" id="file" (change)="uploadImage($event)">
+   <button (click)= "imageUpload()">Upload</button> -->
+<!--    
+        <div [hidden]="!uploadPercent">
+          <mat-progress-bar mode="determinate" value="{{ uploadPercent | async }}"></mat-progress-bar>
+        </div> -->
+
+        <div [hidden]="!postItem.image">
+          <img [src]="postItem.image || '//:0' ">
+        </div>
+
+        <mat-form-field>
+          <input matInput placeholder="Post title" [(ngModel)]="postItem.title" name="title">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Post Image Url" [(ngModel)]="postItem.image" name="image">
+        </mat-form-field>
+        <!-- <form>      
+          <div>
+            <input type="file" name="image" (change)="selectImage($event)" [(ngModel)]="postItem.image" />
+          </div>
+          <br>
+          <div>
+            <button mat-button type="submit" (click)="onSubmit()">Upload</button>
+          </div>
+        </form> -->
+        <br>
+        <mat-form-field>
+          <textarea matInput placeholder="Post Description" [(ngModel)]="postItem.description" name="description" rows="10"></textarea>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="createNewPost()" color="accent" [disabled]="!postItem.title || !postItem.description">{{saving}}</button>
+  
+      </mat-expansion-panel>
+    </mat-accordion>
+  </section>
+  

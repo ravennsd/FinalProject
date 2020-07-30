@@ -1,0 +1,21 @@
+.card-header{ 
+    
+    background-color: rgb(16, 212, 153);
+    color: black;
+    margin: 0px;
+ 
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+    height: 5rem;
+    
+}
+a{
+    padding: 4px;
+    color: black;
+    cursor: pointer;
+}
+.spacer{
+    flex: 1 1 auto;
+    
+}

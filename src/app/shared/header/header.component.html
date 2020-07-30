@@ -1,0 +1,31 @@
+<div class= "card-header">
+ 
+  <mat-toolbar-row>
+    <a routerLink="/ventures"> Home </a>
+    <span class="spacer"></span>
+    <button mat-raised-button color="accent" routerLink="/dash">My Ventures</button>
+    <a routerLink="/signup" aria-hidden="false" *ngIf="!_auth.loggedIn()" >Sign-Up</a>
+    <a routerLink="/login" *ngIf="!_auth.loggedIn()" >Login</a>
+  
+      <button style = "cursor:pointer"
+      *ngIf="_auth.loggedIn()"  mat-button (click)="_auth.logout()">Log Out</button>
+  
+    <ng-template #showLogin>
+      <button mat-button (click)="_auth.loggedIn()">Log In</button>
+    </ng-template>
+  </mat-toolbar-row>
+
+</div>
+
+
+
+
+ <!-- <a routerLink="/Communities"> Communities </a> -->
+    <!-- <div >
+      Hello {{user.name}}
+      <button mat-button (click)="_auth.logout()">Log Out</button>
+    </div>
+    <ng-template #showLogin>
+      <button mat-button (click)="_auth.loggedIn()">Log In</button>
+    </ng-template> -->
+

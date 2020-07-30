@@ -1,0 +1,56 @@
+
+<ng-container *ngIf="posts">
+
+  <div [hidden]="!editing">
+    <mat-card>
+      <h1>Edit Post</h1>
+        <mat-form-field>
+          Title
+          <input matInput placeholder="Post title"  [(ngModel)]="posts.title" name="title"> 
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Post Image Url" [(ngModel)]="posts.image" name="image">
+        </mat-form-field>
+        <!-- <form>      
+          <div>
+            <input type="file" name="image" (change)="selectImage($event)" [(ngModel)]="posts.image" />
+          </div>
+          <br>
+          <div>
+            <button mat-button type="submit" (click)="onSubmit()">Upload</button>
+          </div>
+        </form> -->
+        <br>
+        <mat-form-field>
+          <textarea matInput placeholder="Describe Venture" [(ngModel)]="posts.description" name="description" rows="10"></textarea>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="editInit(posts)" color="accent">Save</button>
+        <button mat-button (click)="editing=false" *ngIf="editing">Cancel</button>
+    </mat-card>
+  </div>
+
+
+  <div [hidden]="editing">
+    <mat-card>
+      <div><h1 class="title">{{posts.title}}</h1></div>
+      <div>Posted By {{posts.author}} on {{posts.published}}</div>
+      <div><img src={{posts.image}}
+                                [style.width.px] ='imageWidth'
+                                [style.margin.px] ='imageMargin' alt="{{posts.title}}">
+      </div>
+      <div>{{posts.description}}</div>
+      <small>Posted by {{posts.author}} &bull; on {{posts.published | date:"fullDate"}}</small>
+      <mat-card-actions>
+          <button mat-icon-button (click)="delete(posts._id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button (click)="editing=true">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-card-actions>
+    </mat-card>
+  </div>
+
+</ng-container>
+

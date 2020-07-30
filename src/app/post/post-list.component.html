@@ -1,0 +1,31 @@
+<!-- <div class="article-page">
+    <div class="banner">
+        <div class="container">
+           
+        </div>
+    </div>
+</div> -->
+
+<section>
+    <mat-card *ngFor="let post of posts">
+      <mat-card-content routerLink="{{post._id}}">
+        <div style="text-align: center">
+        </div>
+        <img mat-card-image src="{{post.image}}"
+        [style.width.px] ='imageWidth'
+                                [style.margin.px] ='imageMargin' alt="{{post.title}}">
+        <h2>{{post.title}}</h2>
+        <p>
+          <small>Posted by {{post.author}} &bull; on {{post.published | date:"fullDate"}}</small>
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-icon-button (click)="DeletePost(post._id)">
+          <mat-icon aria-label="delete">delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+  
+
+
