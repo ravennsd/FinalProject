@@ -12,7 +12,8 @@ import { DashComponent } from './post/dash/dash.component';
 const routes: Routes = [ 
 { path: 'signup', component: SignupComponent},
 { path : 'login', component: LoginComponent },
-{ path: 'dash', component: DashComponent},
+{ path: 'dash', component: DashComponent, 
+canActivate: [AuthGuard]},
 { path: 'create',  component: WritePostComponent, 
 canActivate: [AuthGuard]
 },

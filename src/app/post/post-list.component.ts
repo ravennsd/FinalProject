@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
 import { PostModel } from './PostModel.model';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ imageWidth:number= 300;
   imageMargin: number =20;
   
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, public auth: AuthService) { }
 
   ngOnInit(): void {
     this.getPosts();

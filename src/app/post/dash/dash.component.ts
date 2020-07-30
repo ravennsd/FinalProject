@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../post.service';
+import { AuthService } from '../../auth.service'
 import { PostModel } from "../PostModel.model";
 import { UserModel } from "../../shared/UserModel.model"
 import { NgModuleCompileResult } from '@angular/compiler/src/ng_module_compiler';
@@ -24,6 +25,12 @@ export class DashComponent implements OnInit {
   imageWidth:number= 400;
   imageMargin: number =20;
 
+  contentMargin = 240;
+
+  task: string[] = [
+    'Clearning out my closet', 'Take out trash bins', 'Wash car', 'Tank up the motorcycles', 'Go for flight training'
+  ]
+
   ngOnInit(): void {
      this.postService.dashPosts()
      .subscribe( res => this.posts = res,
@@ -39,6 +46,14 @@ export class DashComponent implements OnInit {
 
    toggleDashTool() {
     console.log("On toolbar toggled", this.isMenuOpen)
+    this. isMenuOpen = !this.isMenuOpen
+
+    
+    if(!this.isMenuOpen) {
+      this.contentMargin = 70;
+    } else {
+      this.contentMargin = 240;
+    }
    }
 
 }   //the end

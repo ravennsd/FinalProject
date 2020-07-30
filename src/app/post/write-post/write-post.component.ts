@@ -31,6 +31,7 @@ export class WritePostComponent implements OnInit {
   constructor(public postService: PostService,public _route: Router ,  private auth: AuthService, public _http: HttpClientModule, private http: HttpClient) { }
  
   postItem = new PostModel(null,null,null,null,null,null);
+  registeredUser={name: "", email: "", password: ""};
 
   ngOnInit(): void {
     
@@ -63,11 +64,17 @@ export class WritePostComponent implements OnInit {
   //     (err) => console.log(err)
   //   );
   // }
-  createNewPost(){
+  createNewPost(){ 
     
+    // this.auth.registerUser(this.registeredUser)
+    // .subscribe(
+    //    res=> {
+    //      console.log(res) })
+
       this.postService.createPost(this.postItem) 
       .subscribe(
-        res=>{console.log(res)
+        res=>{
+        console.log(res)
         console.log(this.postItem)
         console.log("called");
         alert("success");

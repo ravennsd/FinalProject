@@ -1,29 +1,84 @@
 <h1>My Venture List</h1>
  <mat-toolbar>
-    <mat-icon (click) = "toggleDashTool()" id = "toolbarmenu">subject
+    <mat-icon (click) = "toggleDashTool()" id = "toolbarmenu">subject</mat-icon>
+
+    My Dahsboard
+
+    <span class="toolbar-spacer"></span>
+    <mat-icon
+      class= "toolbar-icon" matBadge = "8" matBadgePosition = "after" matBadgeColor = "accent">notifications
     </mat-icon>
-    
-</mat-toolbar>
+  </mat-toolbar>
+  <mat-sidenav-container full-screen>
 
-<button class = "wrtieButton" mat-button color="accent" routerLink = '/create'> Write a Post</button> 
+    <mat-sidenav mode="side" #sidenav id="sidenav" opened
+    [class.menu-open] = "isMenuOpen"
+    [class.menu-close] = "!isMenuOpen">
+      <mat-list id ="menus">
+        <mat-card>
+          <mat-card-header >
+            <div mat-card-avatar class="avatar">
+            </div>
+            <mat-card-title *ngFor="let post of posts" >{{posts.author}}</mat-card-title>
+          <mat-card-subtitle>Internal</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+      <mat-list-item>
+        <button 
+        class="menu-item"
+          mat-flat-button>
+          <mat-icon>dashboard</mat-icon>
+        Dashboard</button>
+      </mat-list-item>
 
-<section>
-    <ng-container>
-    <mat-card *ngFor="let post of posts">
-      <mat-card-content routerLink="{{post._id}}">
-        <img mat-card-image src={{posts.image}}
-                                  [style.width.px] ='imageWidth'
-                                  [style.margin.px] ='imageMargin'>
-        <h2 class="title">{{post.title}}</h2>
-        <p>
-          <small>Posted by {{post.author}} &bull; on {{post.published | date:"fullDate"}}</small>
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-icon-button (click)="DeletePost(post._id)">
-          <mat-icon aria-label="delete">delete</mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-</ng-container>
-  </section>
+      <mat-list-item>
+          <button 
+          class="menu-item"
+            mat-flat-button>
+            <mat-icon>work</mat-icon>
+          Project</button>
+        </mat-list-item>
+
+        <mat-list-item>
+            <button 
+            class="menu-item"
+              mat-flat-button>
+              <mat-icon>settings_application</mat-icon>
+            Settings</button>
+        </mat-list-item>
+
+      </mat-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content
+    [ngStyle]="{ 'margin-left.px': contentMargin }">
+
+        <button class = "writeButton" mat-raised-button color="accent" routerLink = '/create'> Write a Post</button> 
+
+        <section>
+            <ng-container>
+            <mat-card *ngFor="let post of posts">
+              <mat-card-content routerLink="{{post._id}}">
+                <img mat-card-image src={{posts.image}}
+                                          [style.width.px] ='imageWidth'
+                                          [style.margin.px] ='imageMargin'>
+                <h2 class="title">{{post.title}}</h2>
+                <p>
+                  <small>Posted by {{post.author}} &bull; on {{post.published | date:"fullDate"}}</small>
+                </p>
+              </mat-card-content>
+              <mat-card-actions >
+                <button mat-icon-button (click)="DeletePost(post._id)">
+                  <mat-icon aria-label="delete">delete</mat-icon>
+                </button>
+              </mat-card-actions>
+            </mat-card>
+        </ng-container>
+          </section>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+<!-- 
+//*ngIf="auth.loginUser == post.authorID" -->
+

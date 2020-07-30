@@ -102,7 +102,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage }).single('image')
 
-app.post("/create", (req, err) => {
+app.post("/create", (req,res, err) => {
 
   var post = {
     title: req.body.post.title,
@@ -113,12 +113,11 @@ app.post("/create", (req, err) => {
     published: req.body.post.published
   }
   var post = new postData(post);
-  post.save();
-  err => {
-    if (err) { console.log(err) }
-    else { console.log("Data Inserted"); }
-  };
-
+  post.save().then(
+    (data)=>{
+      res.status(200).json(data)
+    }
+  ) 
 });
 
 app.put(('/update/:id'), (req, res, next) => {

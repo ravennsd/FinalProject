@@ -1,7 +1,36 @@
 .writeButton {
-    font-size: larger;
+    font-size: x-large;
 }
 .title{
-    color: darkslateblue;
+    color: rgb(91, 80, 168);
     font-family: sans-serif;
+}
+#matIcon{
+    font-size: larger;
+    size:4 rem;
+}
+#sidenavContainer {
+    margin-top: auto;
+}
+#sidenav {
+    width: 240px;
+}
+#sidenav.menu-close{
+    width: 60px;
+}
+
+#sidenav.menu-open{
+    width: 200px;
+}
+#sidenav .avatar {
+    background-image: url();
+    background-size: cover;
+}
+
+#sidenav .mat-list-item-content{
+    padding: 0;
+}
+#sidenav .menu-item{
+    text-align: left;
+    size: 5px;
 }
