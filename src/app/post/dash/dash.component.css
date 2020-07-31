@@ -1,5 +1,9 @@
 .writeButton {
     font-size: x-large;
+    text-align: center;
+    margin: 3px;
+    padding: 2px;
+ 
 }
 .title{
     color: rgb(91, 80, 168);
@@ -13,14 +17,14 @@
     margin-top: auto;
 }
 #sidenav {
-    width: 240px;
+    width: 340px;
 }
 #sidenav.menu-close{
     width: 60px;
 }
 
 #sidenav.menu-open{
-    width: 200px;
+    width: 340px;
 }
 #sidenav .avatar {
     background-image: url();
@@ -33,4 +37,22 @@
 #sidenav .menu-item{
     text-align: left;
     size: 5px;
+}
+
+mat-form-field{
+    font-size: larger;
+    font-weight: 200;
+    height: 1rem;
+    margin: 10px;
+    padding: 10px;
+    width:100%;
+    height: +100px;
+}
+
+#label{
+    color: indigo;
+    text-align: center;
+    font-size: x-large;
+    margin: 4px;
+    padding: 3px;
 }

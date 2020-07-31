@@ -5,12 +5,36 @@ section {
   grid-gap: 10px;
   margin: 0 auto;
   max-width: 90%;
-
+  background-color: lightcoral ;
 }
 
 mat-card {
     margin: 10px 0;
+    background-color:;
   }
 img{
     width: 100px;
+}
+mat-grid-tile {
+  background: lightblue;
+}
+ng-container{
+  background-color: lightslategray;
+  width: 100%
+}
+.example-ripple-container{
+  height: 200px;
+  text-align: center;
+  font-size: xx-large;
+  color: indigo;
+  
+  font-family: cursive;
+}
+
+.example-ripple-form-field {
+  margin: 0 12px 0 0;
+}
+.text{
+  margin-top: 3rem;
+  font-style: unset;
 }

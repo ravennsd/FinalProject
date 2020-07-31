@@ -18,6 +18,7 @@ var db = mongoose.connect('mongodb://localhost:27017/PostsDB', function (err) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use('/assets', express.static('assets'))
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTION");
@@ -80,6 +81,20 @@ app.get('/posts/:id', function (req, res) {
     ).catch(e => console.log(e))
 })
 
+app.get('/dash/:id', function (req, res) {
+  
+  console.log(req.params.id);
+  postData.findOne
+    ({ _id: req.params.id }).exec().then(
+      data => {
+        res.status(200).json(data)
+        console.log(data);
+      }
+    ).catch(e => console.log(e))
+})
+
+
+
 app.get('/dash', verifyToken, (req, res, err) => {
   // let _id = req.params.id;
   postData.find()
@@ -93,17 +108,27 @@ app.get('/dash', verifyToken, (req, res, err) => {
 
 const storage = multer.diskStorage({
   destination: (req, file, callBack) => {
-    callBack(null, './assets')
+    callBack(null, path.join(__dirname, "./public"))
   },
-  filename: (req, file, callBack) => {
+  filename: (req, file, callBack) => {123
+
     callBack(null, Date.now() + `File_${file.originalname}`)
   }
 })
+const fileFilter = (req,res,err) => {
+  if(file.mimetype === 'image/jpeg' || file.mimetype === "image/png" || file.mimetype === 'image/jpg'){
+    cb(null,true);}
+    else{
+      cb(null,false);
+    }
+  }
 
-const upload = multer({ storage: storage }).single('image')
 
-app.post("/create", (req,res, err) => {
+const upload = multer({ storage: storage, fileFilter: fileFilter }).single('image')
+// app.post('/assets', upload, )
 
+app.post("/create", upload,(req,res, err) => {
+  console.log(req.file);
   var post = {
     title: req.body.post.title,
     description: req.body.post.description,

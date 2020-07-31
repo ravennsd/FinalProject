@@ -1,6 +1,7 @@
 .card-header{ 
     
-    background-color: rgb(16, 212, 153);
+    /* background-color: rgb(16, 212, 153); */
+    background-color: darkslategray;
     color: black;
     margin: 0px;
  
@@ -10,12 +11,33 @@
     height: 5rem;
     
 }
-a{
-    padding: 4px;
-    color: black;
+.reg{
+    padding: 2px;
+  margin: 3px;
+    width: 25px;
+    color: rgb(238, 15, 119);
     cursor: pointer;
+    font-size: 17px;
+    text-decoration:white;
+    font-stretch: extra-expanded;
+
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
 .spacer{
-    flex: 1 1 auto;
+    flex:1 1 auto;
+
+}
+#brand{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    font-style: oblique;
+    font-weight: 600;
+    text-shadow: palevioletred;
     
 }
+.mat-toolbar-row{
+    background-color: darkslategray;
+}
+

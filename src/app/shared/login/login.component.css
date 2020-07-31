@@ -15,3 +15,6 @@ section {
     font-family: monospace;
     font-weight: 300;
 }
+button{
+    color: rgba(250, 21, 109, 0.945); background-color: rgb(36, 51, 51);
+}

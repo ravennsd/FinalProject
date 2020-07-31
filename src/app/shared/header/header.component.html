@@ -1,19 +1,27 @@
 <div class= "card-header">
  
-  <mat-toolbar-row>
-    <a routerLink="/ventures"> Home </a>
+  <mat-toolbar>
+    <mat-toolbar-row>
+     <!-- {{Brand}} -->
+    <label id = "brand"> <mat-icon>
+      pan_tool
+    </mat-icon> Vento </label> 
+    <button class="reg" mat-button routerLink="/featured"> Home </button>
+    <button class="reg" mat-button routerLink="/ventures"> Featured </button>
     <span class="spacer"></span>
-    <button mat-raised-button color="accent" routerLink="/dash">My Ventures</button>
-    <a routerLink="/signup" aria-hidden="false" *ngIf="!_auth.loggedIn()" >Sign-Up</a>
-    <a routerLink="/login" *ngIf="!_auth.loggedIn()" >Login</a>
+    <button mat-raised-button color="accent" id ="special" routerLink="/dash">Start a Venture</button>
+    <span class ="spacer"></span>
+    <button class="reg" mat-button routerLink="/signup" aria-hidden="false" *ngIf="!_auth.loggedIn()" >Sign-Up</button>
+    <button class="reg" mat-button routerLink="/login" *ngIf="!_auth.loggedIn()" >Login</button>
   
-      <button style = "cursor:pointer"
+      <button class="reg" style = "cursor:pointer"
       *ngIf="_auth.loggedIn()"  mat-button (click)="_auth.logout()">Log Out</button>
   
     <ng-template #showLogin>
-      <button mat-button (click)="_auth.loggedIn()">Log In</button>
+      <button class="reg" mat-button (click)="_auth.loggedIn()">Log In</button>
     </ng-template>
   </mat-toolbar-row>
+  </mat-toolbar>
 
 </div>
 

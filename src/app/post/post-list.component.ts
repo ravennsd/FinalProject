@@ -15,6 +15,7 @@ export class PostListComponent implements OnInit {
 posts : PostModel[];
 imageWidth:number= 300;
   imageMargin: number =20;
+  image1: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Ffuture%2Farticle%2F20190911-what-would-happen-if-all-the-worlds-trees-disappeared&psig=AOvVaw0ShZlcJopKltym1-BdPEhH&ust=1596289418622000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNC-otLP9-oCFQAAAAAdAAAAABAJ"
   
 
   constructor(private postService: PostService, public auth: AuthService) { }

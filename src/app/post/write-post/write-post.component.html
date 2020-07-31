@@ -20,7 +20,7 @@
         
    <!-- <input type="file" name="file" id="file" (change)="uploadImage($event)">
    <button (click)= "imageUpload()">Upload</button> -->
-<!--    
+<!--    -
         <div [hidden]="!uploadPercent">
           <mat-progress-bar mode="determinate" value="{{ uploadPercent | async }}"></mat-progress-bar>
         </div> -->
@@ -35,7 +35,7 @@
         <mat-form-field>
           <input matInput placeholder="Post Image Url" [(ngModel)]="postItem.image" name="image">
         </mat-form-field>
-        <!-- <form>      
+        <!-- <form action ="/" enctype="multipart/form-data">      
           <div>
             <input type="file" name="image" (change)="selectImage($event)" [(ngModel)]="postItem.image" />
           </div>

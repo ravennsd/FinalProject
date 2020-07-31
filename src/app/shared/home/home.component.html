@@ -1,47 +1,36 @@
 <div class="home-page">
-    <div class= "banner">
+    <div class= "nav-brand">
+      <h1 class="moto">Make the World a Better Place </h1>
+    </div>
         <div class="container">
-            <h1>Vento</h1>
-            <p>Make the world a better place</p>
+            <mat-chip-list aria-label=" selection">
+                <mat-chip color="primary">#Environment</mat-chip>
+                <mat-chip color="accent" >#Social Good</mat-chip>
+                <mat-chip color="primary" selected>#NOPoverty</mat-chip>
+                <mat-chip color="accent" selected>#SupportKids</mat-chip>
+                <mat-chip color="primary">#GiveForLife</mat-chip>
+                <mat-chip color="accent" >#SaveWater</mat-chip>
+                <mat-chip color="primary" selected>#JusticeForTanya</mat-chip>
+                <mat-chip color="accent" selected>#BalckLivesMatter</mat-chip>
+                <mat-chip color="accent" selected>#DogRescue</mat-chip>
+              </mat-chip-list>
         </div>
-    </div>
-<div class="container-page">
-    <div class="row">
-        <div class="col-md-9">
-            <div class="feed-toggle">
-              <ul class="nav nav-pills outline-active">
-                <li class="nav-item">
-                  <a class="nav-link">
-                      
-                     Trending
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link">
-                     
-                     My Activities
-                  </a>
-                </li>
-                <li class="nav-item" >
-                  <a class="nav-link active">
-                    <i class="ion-pound"></i> 
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-       
-    </div>
+        <mat-grid-list cols="2" rowHeight="2:1">
+          <mat-grid-tile>
+            <!-- <img src="server/assets/image1.jpg" alt="trees" layout-fill> -->
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-chip-list aria-label=" selection">
+            </mat-chip-list>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            
+          </mat-grid-tile>
+          <mat-grid-tile></mat-grid-tile>
+        </mat-grid-list>
+
 </div>
 
-
-
-<!-- [ngClass]="{'active': listConfig.type === 'feed'}"
-                     (click)="setListTo('feed')"> 
-                     [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}"
-                     (click)="setListTo('all')">
-
-                     {{ listConfig.filters.tag }} -->
 
 
 

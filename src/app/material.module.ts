@@ -12,7 +12,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatBadgeModule} from '@angular/material/badge';
-
+import {MatRippleModule} from '@angular/material/core';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -30,7 +32,11 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatListModule,
     MatButtonModule,
     MatBadgeModule,
-    MatCardModule],
+    MatCardModule,
+    MatRippleModule,
+    MatChipsModule,
+    MatGridListModule
+  ],
   imports: [
   
     MatButtonModule,
@@ -46,7 +52,10 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatListModule,
     MatButtonModule,
     MatBadgeModule,
-    MatCardModule
+    MatCardModule,
+    MatRippleModule,
+    MatChipsModule,
+    MatGridListModule
   ]
 })
 export class MaterialModule { }
