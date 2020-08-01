@@ -4,6 +4,7 @@ import { MaterialModule } from '../material.module';
 
 import { RouterModule } from '@angular/router'
 import { FormsModule } from '@angular/forms'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @NgModule({

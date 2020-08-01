@@ -8,11 +8,12 @@ import { WritePostComponent } from './write-post/write-post.component';
 import { DashComponent } from './dash/dash.component';
 
 import { PostService } from '../post.service';
+import { HomeComponent } from '../shared/home/home.component';
 
 const routes: 
 Routes = 
 [{path: 'ventures', component:PostListComponent},
-{path: '', component: PostListComponent},
+{path: '', component: HomeComponent},
 {path:'dash', component: DashComponent},
 {path: ':id', component: PostDetailComponent},
 {path: 'ventures/:id', component: PostDetailComponent},

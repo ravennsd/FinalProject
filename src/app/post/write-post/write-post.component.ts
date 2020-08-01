@@ -21,11 +21,11 @@ export class WritePostComponent implements OnInit {
   description: string
   saving = 'Create Post'
 
-  // uploadPercent: Observable<number>
-  // downloadURL: Observable<string>
-  // image: File = null;
-  // image: string
-  // imageUrl: string;
+  uploadPercent: Observable<number>
+  downloadURL: Observable<string>
+  image: File = null;
+  imageUrl: string
+
   // @createViewChild('fileInput', {static: false})fileInput: HasElementRef;
 
   constructor(public postService: PostService,public _route: Router ,  private auth: AuthService, public _http: HttpClientModule, private http: HttpClient) { }
@@ -36,10 +36,40 @@ export class WritePostComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  selectImage(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.image = <File> file;
+    }
+    const reader = new FileReader();
+
+    if(event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+
+        this.imageUrl = reader.result as string;
+      };
+
+    }
+  }
+  onSubmit() {
+    console.log(this.image);
+
+    const formData=new FormData();
+    formData.append('image',this.image);
+    console.log(this.postItem);
+    // tslint:disable-next-line:forin
+    let item=this.postItem;
+    for ( let key in item ) {
+      formData.append(key, item[key]);
+    }}
+
   // selectImage(event) {
   //   if (event.target.files.length > 0) {
   //     const file = event.target.files[0];
-  //     this.image = file;
+  //     this.image =<File> file;
   //   }
   //   const reader = new FileReader();
 
@@ -49,12 +79,13 @@ export class WritePostComponent implements OnInit {
   //     this.imageUrl = reader.result as string;
 
   //     };
-
   //   }
   // }
-  // onSubmit(){
+  //  onSubmit(){
+  //    console.log('ivade');
+  //    console.log(this.image)
   //   const formData = new FormData();
-  //   formData.append('file', this.image);
+  //   formData.append('image', this.image);
   //   let item = this.postItem
   //   for ( let key in item ) {
   //     formData.append(key, item[key]);
@@ -78,7 +109,7 @@ export class WritePostComponent implements OnInit {
         console.log(this.postItem)
         console.log("called");
         alert("success");
-        this._route.navigate(["/"]);
+        this._route.navigate(["/ventures"]);
         }
         
       )   

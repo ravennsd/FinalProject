@@ -23,7 +23,9 @@ export class LoginComponent implements OnInit {
         alert("Welcome")
         this._router.navigate(['/'])
       },
-      err=>console.log(err)
+      err=>{
+      alert("Please enter the correct login details");
+      console.log(err) }
      )
   }
 

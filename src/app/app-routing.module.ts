@@ -9,10 +9,10 @@ import { LoginComponent } from './shared/login/login.component';
 import { WritePostComponent } from './post/write-post/write-post.component';
 import { DashComponent } from './post/dash/dash.component';
 
-const routes: Routes = [ 
-{ path: 'signup', component: SignupComponent},
+const routes: Routes = [
+{ path: 'signup', component: SignupComponent },
 { path : 'login', component: LoginComponent },
-{ path: 'featured', component: HomeComponent },
+{ path:'featured', component: HomeComponent },
 { path: 'dash', component: DashComponent, 
 canActivate: [AuthGuard]},
 { path: 'create',  component: WritePostComponent, 

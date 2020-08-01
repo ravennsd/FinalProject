@@ -110,9 +110,9 @@ const storage = multer.diskStorage({
   destination: (req, file, callBack) => {
     callBack(null, path.join(__dirname, "./public"))
   },
-  filename: (req, file, callBack) => {123
+  filename: (req, file, callBack) => {
 
-    callBack(null, Date.now() + `File_${file.originalname}`)
+    callBack(null, Date.now() + `${file.originalname}`)
   }
 })
 const fileFilter = (req,res,err) => {
@@ -124,17 +124,23 @@ const fileFilter = (req,res,err) => {
   }
 
 
-const upload = multer({ storage: storage, fileFilter: fileFilter }).single('image')
+const upload = multer({ storage: storage, fileFilter: fileFilter }).single('image');
 // app.post('/assets', upload, )
+// console.log(req.body);
+// console.log(req.file);
 
-app.post("/create", upload,(req,res, err) => {
-  console.log(req.file);
+app.post("/create", (req,res) => {
+ upload(req,res,function(err){
+
+   console.log(req.body)
+   console.log('==================================')
+   console.log(req.file)
   var post = {
     title: req.body.post.title,
     description: req.body.post.description,
     authorID: req.body.post.authorID,
     author: req.body.post.author,
-    image: req.body.post.image,
+    image: req.file.originalname,
     published: req.body.post.published
   }
   var post = new postData(post);
@@ -143,6 +149,7 @@ app.post("/create", upload,(req,res, err) => {
       res.status(200).json(data)
     }
   ) 
+ }) 
 });
 
 app.put(('/update/:id'), (req, res, next) => {

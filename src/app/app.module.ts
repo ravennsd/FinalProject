@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { AuthGuard } from "./auth.guard";
 import { TokenInterceptorService } from "./token-interceptor.service";
@@ -38,6 +38,7 @@ import { MaterialModule } from './material.module';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NoopAnimationsModule,
     BrowserAnimationsModule,
     

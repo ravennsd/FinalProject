@@ -20,19 +20,19 @@
   <div class="col-md-12">
         <div class="form-group">
             <label for="exampleInputName1">User Name</label>
-            <input type="text" [(ngModel)]="registeredUser.name" name="name" class="form-control" aria-describedby="emailHelp" placeholder="Enter your name">
+            <input type="text" required  [(ngModel)]="registeredUser.name" name="name" class="form-control" aria-describedby="emailHelp" placeholder="Enter your name">
         </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="text" [(ngModel)]="registeredUser.email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <input type="text" required  [(ngModel)]="registeredUser.email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" [(ngModel)]="registeredUser.password" name="password"class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <input type="password" [(ngModel)]="registeredUser.password" required name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
     <div class="form-check">
-      <input type="checkbox" class="form-check-input" checked id="exampleCheck1">
+      <input type="checkbox" class="form-check-input" required checked id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">I agree to the <a>Terms</a> and <a>Conditions</a></label>
     </div>
     <button type="submit" (click)="registerUser()" class="btn btn-primary">Submit</button>
@@ -47,3 +47,4 @@
 </body>
 </html>
 
+<!-- //required [email]="registeredUser.email!==''" #email="ngModel" [(ngModel)]="Uemail" -->
