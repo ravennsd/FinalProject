@@ -1,6 +1,6 @@
 # SocialApp
 
-With this app, you can perform all crud operations. Add ventures with th
+With this app, you can perform all MEAN stack CRUD operations. Add ventures by clicking on 'Start a Venture'. Featured consists of newly created ventures, and each venture can be clicked upon to reveal the detailed description. And, authors can modify. 
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
