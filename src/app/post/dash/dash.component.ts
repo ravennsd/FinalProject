@@ -28,10 +28,6 @@ export class DashComponent implements OnInit {
 
   contentMargin = 240;
 
-  task: string[] = [
-    'Clearning out my closet', 'Take out trash bins', 'Wash car', 'Tank up the motorcycles', 'Go for flight training'
-  ]
-
   ngOnInit(): void {
      this.getDashPosts();
      }
@@ -61,7 +57,7 @@ export class DashComponent implements OnInit {
     }
    }
 
-   DeletePost(id){
+   delete(id){
     console.log(id);
     this.postService.deletePost(id)
     .subscribe(data=>{console.log(data)

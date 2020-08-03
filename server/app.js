@@ -107,22 +107,21 @@ app.get('/dash', verifyToken, (req, res, err) => {
 
 
 const storage = multer.diskStorage({
-  destination: (req, file, callBack) => {
+  destination: (req, res, file, callBack) => {
     callBack(null, path.join(__dirname, "./public"))
   },
   filename: (req, file, callBack) => {
 
-    callBack(null, Date.now() + `${file.originalname}`)
+    callBack(null, file.fieldname + Date.now())
   }
 })
-const fileFilter = (req,res,err) => {
+const fileFilter = (req, res,err) => {
   if(file.mimetype === 'image/jpeg' || file.mimetype === "image/png" || file.mimetype === 'image/jpg'){
     cb(null,true);}
     else{
       cb(null,false);
     }
   }
-
 
 const upload = multer({ storage: storage, fileFilter: fileFilter }).single('image');
 // app.post('/assets', upload, )
@@ -140,7 +139,7 @@ app.post("/create", (req,res) => {
     description: req.body.post.description,
     authorID: req.body.post.authorID,
     author: req.body.post.author,
-    image: req.file.originalname,
+    image: req.file.fieldname,
     published: req.body.post.published
   }
   var post = new postData(post);
