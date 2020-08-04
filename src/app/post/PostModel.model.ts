@@ -5,6 +5,6 @@ export class PostModel {
     public author: string,
     public description: string,
     public published: Date,
-    public image:File){}
+    public image:string){}
 
 }

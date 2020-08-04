@@ -134,12 +134,13 @@ app.post("/create", (req,res) => {
    console.log(req.body)
    console.log('==================================')
    console.log(req.file)
+
   var post = {
     title: req.body.post.title,
     description: req.body.post.description,
     authorID: req.body.post.authorID,
     author: req.body.post.author,
-    image: req.file.fieldname,
+    image: req.body.post.image,
     published: req.body.post.published
   }
   var post = new postData(post);
@@ -147,7 +148,7 @@ app.post("/create", (req,res) => {
     (data)=>{
       res.status(200).json(data)
     }
-  ) 
+   ) 
  }) 
 });
 
@@ -170,16 +171,16 @@ app.put(('/update/:id'), (req, res, next) => {
 
 //let upload = multer({ dest: 'uploads/' })
 
-app.post('/file', upload, (req, res, next) => {
-  const file = req.file;
-  console.log(file.filename);
-  if (!file) {
-    const error = new Error('No File')
-    error.httpStatusCode = 400
-    return next(error)
-  }
-  res.send(file);
-})
+// app.post('/file', upload, (req, res, next) => {
+//   const file = req.file;
+//   console.log(file.filename);
+//   if (!file) {
+//     const error = new Error('No File')
+//     error.httpStatusCode = 400
+//     return next(error)
+//   }
+//   res.send(file);
+// })
 
 app.post('/delete', (req, res) => {
   console.log(req.body.post);
