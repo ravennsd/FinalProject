@@ -10,9 +10,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class SignupComponent implements OnInit {
   registeredUser={name: "", email: "", password: ""};
 
-  constructor(private _auth: AuthService, private _router:Router, private fb: FormBuilder, private validators: Validators) { }
+  constructor(private _auth: AuthService, private _router:Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+  
   }
   registerUser() 
   {
@@ -21,7 +22,8 @@ export class SignupComponent implements OnInit {
       res=> {
         console.log(res)
         localStorage.setItem('token', res.token)
-        this._router.navigate(['/login']) 
+        alert("Signup Success!")
+        this._router.navigate(['/ventures']) 
       },
       err=>console.log("Here is the error")
    )

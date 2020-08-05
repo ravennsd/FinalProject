@@ -60,11 +60,21 @@ export class WritePostComponent implements OnInit {
     const formData=new FormData();
     formData.append('image',this.image);
     console.log(this.postItem);
-    // tslint:disable-next-line:forin
+ 
     let item=this.postItem;
+
     for ( let key in item ) {
       formData.append(key, item[key]);
-    }}
+    }
+
+    this.postService.createPost(formData).subscribe(
+    
+          (res) =>{ console.log(res)
+          console.log("image got")
+          this._route.navigateByUrl('/ventures'); },
+          (err) => console.log(err)
+        );
+  }
 
   // selectImage(event) {
   //   if (event.target.files.length > 0) {
@@ -95,24 +105,24 @@ export class WritePostComponent implements OnInit {
   //     (err) => console.log(err)
   //   );
   // }
-  createNewPost(){ 
+  // createNewPost(){ 
     
-    // this.auth.registerUser(this.registeredUser)
-    // .subscribe(
-    //    res=> {
-    //      console.log(res) })
+  //   // this.auth.registerUser(this.registeredUser)
+  //   // .subscribe(
+  //   //    res=> {
+  //   //      console.log(res) })
 
-      this.postService.createPost(this.postItem) 
-      .subscribe(
-        res=>{
-        console.log(res)
-        console.log(this.postItem)
-        console.log("called");
-        alert("success");
-        this._route.navigate(["/ventures"]);
-        }
+  //     this.postService.createPost(this.postItem) 
+  //     .subscribe(
+  //       res=>{
+  //       console.log(res)
+  //       console.log(this.postItem)
+  //       console.log("called");
+  //       alert("success");
+  //       this._route.navigate(["/ventures"]);
+  //       }
         
-      )   
-  } 
+  //     )   
+  // } 
    
 }

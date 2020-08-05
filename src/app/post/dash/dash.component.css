@@ -17,7 +17,8 @@
     margin-top: auto;
 }
 #sidenav {
-    width: 340px;
+    width: 340px; 
+    
 }
 #sidenav.menu-close{
     width: 60px;

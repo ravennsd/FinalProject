@@ -9,49 +9,31 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
   
-        <!-- <input type="file" name="file" id="file" (change)="uploadImage($event)">
-        <div [hidden]="!uploadPercent">
-          <mat-progress-bar mode="determinate" value="{{ uploadPercent | async }}"></mat-progress-bar>
-        </div>
-        <div [hidden]="!image">
-          <img [src]="image || '//:0' ">
-        </div>
-   -->
-        
-   <!-- <input type="file" name="file" id="file" (change)="uploadImage($event)">
-   <button (click)= "imageUpload()">Upload</button> -->
-<!--    -
-        <div [hidden]="!uploadPercent">
-          <mat-progress-bar mode="determinate" value="{{ uploadPercent | async }}"></mat-progress-bar>
-        </div> -->
-
+<!-- 
         <div [hidden]="!postItem.image">
           <img [src]="postItem.image || '//:0' ">
-        </div>
+        </div> -->
+      <form #form="ngForm"  (submit)="onSubmit()" enctype="multipart/form-data">
 
         <mat-form-field>
-          <input matInput placeholder="Post title" [(ngModel)]="postItem.title" name="title">
+          <input class="form-control" matInput placeholder="Post title" [(ngModel)]="postItem.title" name="title">
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Post Image Url" [(ngModel)]="postItem.image" name="image">
         </mat-form-field>
-        <form #form="ngForm"  (submit)="onSubmit()" enctype="multipart/form-data"> 
-
-          <div>
+        <form>
+         <div>
             <input type="file" class="form-control" name="image" (change)="selectImage($event)" [(ngModel)]="postItem.image" />
-          </div>
-          <br>
-          <div>
-            <button mat-button type="submit">Upload</button>
-          </div>
-        </form>
+        </div>
+      </form>
+      
         <br>
         <mat-form-field>
-          <textarea matInput placeholder="Post Description" [(ngModel)]="postItem.description" name="description" rows="10"></textarea>
+          <textarea class="form-control" matInput placeholder="Post Description" [(ngModel)]="postItem.description" name="description" rows="10"></textarea>
         </mat-form-field>
         <br>
-        <button mat-raised-button (click)="createNewPost()" color="accent" [disabled]="!postItem.title || !postItem.description">{{saving}}</button>
-  
+        <button type="submit" mat-raised-button color="accent" [disabled]="!postItem.title || !postItem.description">{{saving}}</button>
+      </form>
       </mat-expansion-panel>
     </mat-accordion>
   </section>

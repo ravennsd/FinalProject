@@ -38,7 +38,7 @@ const postSchema = new Schema({
   authorID: String,
   author: String,
   description: String,
-  published: Date,
+  published: String,
   image: String
 })
 var postData = mongoose.model('posts', postSchema, 'posts');
@@ -107,15 +107,15 @@ app.get('/dash', verifyToken, (req, res, err) => {
 
 
 const storage = multer.diskStorage({
-  destination: (req, res, file, callBack) => {
-    callBack(null, path.join(__dirname, "./public"))
+  destination: (req,  file, callback) => {
+    callback(null, "assets")
   },
-  filename: (req, file, callBack) => {
+  filename: (req, file, callback) => {
 
-    callBack(null, file.fieldname + Date.now())
+    callback(null, file.originalname)
   }
 })
-const fileFilter = (req, res,err) => {
+const fileFilter = (req, file, cb) => {
   if(file.mimetype === 'image/jpeg' || file.mimetype === "image/png" || file.mimetype === 'image/jpg'){
     cb(null,true);}
     else{
@@ -123,7 +123,7 @@ const fileFilter = (req, res,err) => {
     }
   }
 
-const upload = multer({ storage: storage, fileFilter: fileFilter }).single('image');
+var upload = multer({ storage: storage, fileFilter: fileFilter }).single('image');
 // app.post('/assets', upload, )
 // console.log(req.body);
 // console.log(req.file);
@@ -133,23 +133,26 @@ app.post("/create", (req,res) => {
 
    console.log(req.body)
    console.log('==================================')
-   console.log(req.file)
-
+   const file = req.file
+   console.log(file.filename)
+   if (err) {
+    console.log(err)
+    return res.end("Error uploading file.");
+  }
   var post = {
-    title: req.body.post.title,
-    description: req.body.post.description,
-    authorID: req.body.post.authorID,
-    author: req.body.post.author,
-    image: req.body.post.image,
-    published: req.body.post.published
+    title: req.body.title,
+    description: req.body.description,
+    authorID: req.body.authorID,
+    author: req.body.author,
+    image: req.file.originalname,
+    published: req.body.published
   }
   var post = new postData(post);
   post.save().then(
     (data)=>{
       res.status(200).json(data)
-    }
-   ) 
- }) 
+    }).catch(err=>console.log(err)) 
+ })
 });
 
 app.put(('/update/:id'), (req, res, next) => {

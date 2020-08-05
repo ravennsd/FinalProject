@@ -4,7 +4,7 @@ export class PostModel {
     public authorID: string,
     public author: string,
     public description: string,
-    public published: Date,
+    public published: string,
     public image:string){}
 
 }

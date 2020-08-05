@@ -25,7 +25,7 @@ export class PostService {
   }
 
   createPost(data){
-      return this.http.post("http://localhost:3100/create", {"post":data})
+      return this.http.post("http://localhost:3100/create", data)
   }
 
   deletePost(id: string){
@@ -40,7 +40,7 @@ export class PostService {
   // editP(post){
   //   return this.http.put(`http://localhost:3100/update`,post);
   // }
-  uploadImageData(image: File){
-    return this.http.post("http://localhost:3100/create", {"image":image})
-  }
+  // uploadImageData(image){
+  //   return this.http.post("http://localhost:3100/create", image)
+  // }
 }
